@@ -111,14 +111,19 @@ namespace BitGo {
    * Reads the values from both line sensors.
    */
   //% block="get %sensor=LineSensor line sensor"
-  //% block.loc.de="%sensor=LineSensor Linien Sensor abrufen"
+  //% block.loc.de="%sensor=LineSensor Linien Sensor"
   //% group="Sensoren"
   //% weight=80
-  export function getLineSensors (sensor: LineSensor): boolean {
+  export function getLineSensors (sensor: LineSensor): int8 {
     if (sensor == LineSensor.Left) {
-      return !digitalRead(Ports.B0)
+      if (!digitalRead(Ports.B0))
+        return 1;
+      return 0;
+
     } else {
-      return !digitalRead(Ports.B1)
+      if (!digitalRead(Ports.B1))
+        return 1;
+      return 0;
     }
   }
 
