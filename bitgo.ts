@@ -93,12 +93,12 @@ namespace BitGo {
   //% group="Sensoren"
   //% weight=90
   export function getDistance (): number {
-    pins.setPull(DigitalPin.P13, PinPullMode.PullNone)
-    pins.digitalWritePin(DigitalPin.P13, 0)
+    pins.setPull(DigitalPin.P15, PinPullMode.PullNone)
+    pins.digitalWritePin(DigitalPin.P15, 0)
     control.waitMicros(2)
-    pins.digitalWritePin(DigitalPin.P13, 1)
+    pins.digitalWritePin(DigitalPin.P15, 1)
     control.waitMicros(10)
-    pins.digitalWritePin(DigitalPin.P13, 0)
+    pins.digitalWritePin(DigitalPin.P15, 0)
 
     // read pulse
     const d = pins.pulseIn(DigitalPin.P1, PulseValue.High)
@@ -156,29 +156,29 @@ namespace BitGo {
       pins.analogWritePin(AnalogPin.P8, speed)
       pins.analogWritePin(AnalogPin.P16, 0)
       // rechts
-      pins.analogWritePin(AnalogPin.P14, speed)
-      pins.analogWritePin(AnalogPin.P12, 0)
+      pins.analogWritePin(AnalogPin.P12, speed)
+      pins.analogWritePin(AnalogPin.P14, 0)
     } else if (direction == Direction.Backward) {
       // links
       pins.analogWritePin(AnalogPin.P8, 0)
       pins.analogWritePin(AnalogPin.P16, speed)
       // rechts
-      pins.analogWritePin(AnalogPin.P14, 0)
-      pins.analogWritePin(AnalogPin.P12, speed)
+      pins.analogWritePin(AnalogPin.P12, 0)
+      pins.analogWritePin(AnalogPin.P14, speed)
     } else if (direction == Direction.Left) {
       // links
       pins.analogWritePin(AnalogPin.P8, speed / 2)
       pins.analogWritePin(AnalogPin.P16, 0)
       // rechts
-      pins.analogWritePin(AnalogPin.P14, speed)
-      pins.analogWritePin(AnalogPin.P12, 0)
+      pins.analogWritePin(AnalogPin.P12, speed)
+      pins.analogWritePin(AnalogPin.P14, 0)
     } else if (direction == Direction.Right) {
       // links
       pins.analogWritePin(AnalogPin.P8, speed)
       pins.analogWritePin(AnalogPin.P16, 0)
       // rechts
-      pins.analogWritePin(AnalogPin.P14, speed / 2)
-      pins.analogWritePin(AnalogPin.P12, 0)
+      pins.analogWritePin(AnalogPin.P12, speed / 2)
+      pins.analogWritePin(AnalogPin.P14, 0)
     }
   }
 
